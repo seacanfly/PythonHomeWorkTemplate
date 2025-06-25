@@ -22,42 +22,25 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
-      - name: Create and activate virtualenv
+      - name: Setup virtualenv and dependencies
         run: |
           uv venv
-          echo "source .venv/bin/activate" >> $GITHUB_ENV
-
-      - name: Install dependencies
-        run: |
-          source .venv/bin/activate
-          uv sync
+          .venv/bin/uv sync
 
       - name: Run pytest for functional correctness
-        run: |
-          source .venv/bin/activate
-          pytest tests/test_hw.py
+        run: .venv/bin/pytest tests/test_hw.py
 
       - name: Run type checks with mypy
-        run: |
-          source .venv/bin/activate
-          mypy src/main.py
+        run: .venv/bin/mypy src/main.py
 
       - name: Check formatting with black
-        run: |
-          source .venv/bin/activate
-          black --check src/
+        run: .venv/bin/black --check src/
 
       - name: Run custom AST checks (e.g. must use recursion)
-        run: |
-          source .venv/bin/activate
-          python scripts/ast_check.py
+        run: .venv/bin/python scripts/ast_check.py
 
       - name: Run output format tests
-        run: |
-          source .venv/bin/activate
-          python scripts/output_format_test.py
+        run: .venv/bin/python scripts/output_format_test.py
 
       - name: (Optional) Compute score
-        run: |
-          source .venv/bin/activate
-          python scripts/compute_score.py
+        run: .venv/bin/python scripts/compute_score.py
