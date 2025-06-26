@@ -29,7 +29,10 @@ jobs:
 
       - name: Install dependencies
         run: uv sync  # 直接使用uv，无需激活
-
+        
+      - name: Install so
+        run: uv pip install -e . 
+        
       - name: Run pytest for functional correctness
         run: pytest tests/test_main.py  # 直接调用命令
 
