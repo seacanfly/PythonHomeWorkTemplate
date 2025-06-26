@@ -31,7 +31,7 @@ jobs:
         run: uv sync  # 直接使用uv，无需激活
 
       - name: Run pytest for functional correctness
-        run: pytest tests/test_hw.py  # 直接调用命令
+        run: pytest tests/test_main.py  # 直接调用命令
 
       - name: Run type checks with mypy
         run: mypy src/main.py
