@@ -1,6 +1,6 @@
 import io
 import sys
-from src.main import solve
+from s0c0.main import solve
 
 def test_output_format():
     sys.stdout = io.StringIO()
