@@ -1,6 +1,6 @@
 import ast
 
-with open("src/main.py") as f:
+with open("src/s0c0/main.py") as f:
     tree = ast.parse(f.read())
 
 # 举例检查是否使用了函数定义（或其他如递归等）
