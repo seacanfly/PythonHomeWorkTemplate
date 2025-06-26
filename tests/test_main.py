@@ -1,5 +1,5 @@
 import pytest
-import src.main as hw
+import s0c0.main as hw
 
 def test_add():
     assert hw.add(1, 2) == 3
