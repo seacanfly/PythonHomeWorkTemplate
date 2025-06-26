@@ -34,7 +34,7 @@ jobs:
         run: pytest tests/test_main.py  # 直接调用命令
 
       - name: Run type checks with mypy
-        run: mypy src/main.py
+        run: mypy src/s0c0/main.py
 
       - name: Check formatting with black
         run: black --check src/
